@@ -1,0 +1,4 @@
+fastapi
+starlette
+flake8
+uvicorn
