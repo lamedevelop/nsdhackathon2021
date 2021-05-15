@@ -1,5 +1,5 @@
-CREATE DATABASE db_test;
-USE db_test;
+CREATE DATABASE common;
+USE common;
 
 CREATE TABLE users (
     user_id int,
