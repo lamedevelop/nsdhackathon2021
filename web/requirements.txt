@@ -2,3 +2,5 @@ fastapi
 starlette
 flake8
 uvicorn
+jinja2
+aiofiles
