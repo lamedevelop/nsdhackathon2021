@@ -17,12 +17,17 @@ class TgNotificationsService(AbstractService):
         return notifications
 
     async def checkUserExist(self, tg_id: int):
+        return await self.getUserByTgId(tg_id)
+
+    async def getUserByTgId(self, tg_id: int):
         user = await self.select(
             users_table.select().where(
                 users_table.c.tg_id == tg_id
             )
         )
+        return await self.getUser(user)
 
+    async def getUser(self, user):
         if user:
             return User(**user)
         else:
