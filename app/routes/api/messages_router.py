@@ -42,3 +42,15 @@ async def get_unread(user_id: int):
     return JSONResponse(
         {'data': await message_service.getNewMessages(user_id)}
     )
+
+
+@router.get(
+    "/zip_struct",
+    name='api:get-zi-struct',
+    status_code=status.HTTP_200_OK
+)
+async def get_zip_struct(message_id: int):
+    message_service = MessagesService()
+    return JSONResponse(
+        {'data': await message_service.getZipFileStruct(message_id)}
+    )
