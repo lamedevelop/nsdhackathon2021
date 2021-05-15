@@ -2,11 +2,11 @@ CREATE DATABASE common;
 USE common;
 
 CREATE TABLE users (
-    user_id int,
+    user_id int PRIMARY KEY AUTO_INCREMENT,
     password_hash text,
     phone varchar(255),
     email varchar(255),
-    tg_id int,
+    tg_id int DEFAULT 0,
     tg_authdate int,
     tg_hash text,
     first_name varchar(255),
@@ -17,6 +17,7 @@ CREATE TABLE users (
 );
 
 CREATE TABLE messages (
+    message_id int PRIMARY KEY AUTO_INCREMENT,
     sender_id int,
     receiver_id int,
     message text,
@@ -26,7 +27,7 @@ CREATE TABLE messages (
 );
 
 CREATE TABLE tg_notifications (
-    notification_id int,
+    notification_id int PRIMARY KEY AUTO_INCREMENT,
     tg_id int,
     message text,
     executed bool,
