@@ -21,7 +21,8 @@ CREATE TABLE messages (
     receiver_id int,
     message text,
     filepath text,
-    creation_date int
+    creation_date int,
+    viewed bool
 );
 
 CREATE TABLE tg_notifications (
