@@ -22,3 +22,6 @@ local:
 
 docker:
 	docker-compose up --build
+
+db:
+	docker-compose run -d --service-ports db

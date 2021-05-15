@@ -6,7 +6,7 @@ RUN \
     apk add --no-cache make && \
     pip install -r /tmp/requirements.txt
 
-COPY web /etc/web/
+COPY . /etc/web/
 
 WORKDIR /etc/web/
 

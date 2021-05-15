@@ -3,7 +3,7 @@ version: "3.9"
 services:
   web:
     container_name: web
-    build: ./web
+    build: .
     restart: always
     ports:
       - 80:8000
@@ -11,16 +11,16 @@ services:
       - db:mariadb
   
   db:
-    container_name: maria
+    container_name: db
     image: mariadb:10.5
-    command: --init-file /docker-entrypoint-initdb.d/init.sql
+#    command: --init-file /docker-entrypoint-initdb.d/init.sql
     restart: always
     environment: 
-      MARIADB_ROOT_PASSWORD: 'root'
+      MYSQL_ROOT_PASSWORD: 'root'
     ports:
       - 3306:3306
     volumes:
-      - ./web/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
       # - db-storage:/var/lib/mysql
 
 volumes:
