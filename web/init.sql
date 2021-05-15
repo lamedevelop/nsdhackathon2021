@@ -1,3 +1,6 @@
+CREATE DATABASE db_test;
+USE db_test;
+
 CREATE TABLE users (
     user_id int,
     password_hash text,
