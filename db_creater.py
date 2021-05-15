@@ -59,3 +59,5 @@ VALUES
   (3, 'kekmarakek', 'lie',1, 35, 36),
 """
 execute_query(connection, create_users)
+execute_query(connection, create_messages)
+execute_query(connection, create_tg_notifications)
