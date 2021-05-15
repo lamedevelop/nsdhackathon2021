@@ -17,6 +17,15 @@ async def auth(request: Request):
 
 
 @router.get(
+    "/login",
+    name='web:login',
+    status_code=status.HTTP_200_OK
+ )
+async def hello(request: Request):
+    return templates.TemplateResponse("login.html", {"request": request})
+
+
+@router.get(
     "/registration",
     name='web:registration',
     status_code=status.HTTP_200_OK
