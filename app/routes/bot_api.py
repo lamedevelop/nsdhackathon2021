@@ -7,22 +7,34 @@ router = APIRouter()
 
 
 @router.get(
-    "/hello",
-    name='api:hello',
+    "/income",
+    name='api:income',
     status_code=status.HTTP_200_OK
 )
-async def hello():
+async def income(request: Request):
     return JSONResponse(
         {'response': "HELLO FROM ORKS!"}
     )
 
 
 @router.get(
-    "/auth",
-    name='api:auth',
+    "/outcome",
+    name='api:outcome',
     status_code=status.HTTP_200_OK
 )
-async def auth():
+async def outcome(request: Request):
     return JSONResponse(
         {'response': "HELLO FROM ORKS!"}
     )
+
+
+@router.get(
+    "/new",
+    name='api:new',
+    status_code=status.HTTP_200_OK
+)
+async def new(request: Request):
+    return JSONResponse(
+        {'response': "HELLO FROM ORKS!"}
+    )
+
