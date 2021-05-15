@@ -4,5 +4,17 @@ services:
   web:
     container_name: web
     build: ./web
+    restart: always
     ports:
       - 80:8000
+    links:
+      - db:mariadb
+  
+  db:
+    container_name: maria
+    image: mariadb:10.5
+    restart: always
+    environment: 
+      MARIADB_ROOT_PASSWORD: 'root'
+    ports:
+      - 3306:3306
