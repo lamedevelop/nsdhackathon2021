@@ -1,8 +1,8 @@
 from fastapi import FastAPI
-
-from app.router import router
-
 from fastapi.staticfiles import StaticFiles
+
+from app.routes.main import router
+
 
 def get_application() -> FastAPI:
     application = FastAPI()

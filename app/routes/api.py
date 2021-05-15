@@ -17,13 +17,3 @@ async def hello():
     return JSONResponse(
         {'response': "HELLO FROM ORKS!"}
     )
-
-
-@router.get(
-    "/",
-    name='basic:default',
-    status_code=status.HTTP_200_OK
-)
-async def hello(request: Request):
-    data = {'response': "default"}
-    return templates.TemplateResponse("index.html", {"request": request, "value": data})
