@@ -1,9 +1,9 @@
 from fastapi import APIRouter
 
-from app.routes import api, api_messages, web
-
+from app.routes import web
+from app.routes.api import app_router, messages_router
 
 router = APIRouter()
-router.include_router(api.router, tags=["api"], prefix="/api")
-router.include_router(api_messages.router, tags=["api"], prefix="/api")
+router.include_router(app_router.router, tags=["api"], prefix="/api")
+router.include_router(messages_router.router, tags=["api"], prefix="/api")
 router.include_router(web.router, tags=["web"], prefix="")

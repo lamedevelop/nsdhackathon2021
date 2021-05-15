@@ -4,6 +4,7 @@ from starlette.responses import JSONResponse
 
 from app.db.services.messages import MessagesService
 
+
 router = APIRouter()
 
 
