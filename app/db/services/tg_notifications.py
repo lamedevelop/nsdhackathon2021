@@ -1,3 +1,4 @@
+from app.db.models.tg_notification import TgNotification
 from app.db.models.user import User
 from app.db.schema import users_table, tg_notifications_table
 from app.db.services.abstract import AbstractService
@@ -13,16 +14,30 @@ class TgNotificationsService(AbstractService):
 
         notifications = []
         for message in res:
+            # todo: return after notification tests
+            # await self.deactivateNotification(TgNotification(**message))
             notifications.append(message[0])
         return notifications
 
+    async def deactivateNotification(self, notification):
+        await self.execute(
+            tg_notifications_table.update()
+            .where(tg_notifications_table.c.notification_id == notification.notification_id)
+            .values({'executed': True})
+        )
+
     async def checkUserExist(self, tg_id: int):
+        return await self.getUserByTgId(tg_id)
+
+    async def getUserByTgId(self, tg_id: int):
         user = await self.select(
             users_table.select().where(
                 users_table.c.tg_id == tg_id
             )
         )
+        return await self.getUser(user)
 
+    async def getUser(self, user):
         if user:
             return User(**user)
         else:

@@ -57,6 +57,6 @@ VALUES
   (122031432, 'this is testing 1', 1, 29, 30),
   (122031432, 'this is testing 2', 0, 29, 30),
   (122031432, 'this is testing 3', 0, 29, 30),
-  (297002761, 'this is fake', 0, 31, 32),
-  (392009652, 'fakefactorio', 1, 33, 34),
+  (297002761, 'this is fake OOOOOOO', 0, 31, 32),
+  (392009652, 'fakefactorio !123123124', 1, 33, 34),
   (368497600, 'lie',1, 35, 36);

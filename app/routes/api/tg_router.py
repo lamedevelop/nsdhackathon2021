@@ -9,6 +9,18 @@ router = APIRouter()
 
 
 @router.get(
+    "/user",
+    name='api:get-tg-user',
+    status_code=status.HTTP_200_OK
+)
+async def get_tg_user(tg_id: int):
+    tg_service = TgNotificationsService()
+    return JSONResponse(
+        {'data': await tg_service.getUserByTgId(tg_id)}
+    )
+
+
+@router.get(
     "/notifications",
     name='api:get-notifications',
     status_code=status.HTTP_200_OK
