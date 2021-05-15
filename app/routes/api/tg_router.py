@@ -1,45 +1,38 @@
-from fastapi import APIRouter, Request
+from fastapi import APIRouter
 from starlette import status
 from starlette.responses import JSONResponse
 
-from app.db.services.messages import MessagesService
+from app.db.services.tg_notifications import TgNotificationsService
 
 
 router = APIRouter()
 
 
 @router.get(
-    "/income",
-    name='api:income',
+    "/notifications",
+    name='api:get-notifications',
     status_code=status.HTTP_200_OK
 )
-async def income(user_id: int):
-    message_service = MessagesService()
+async def get_notifications():
+    tg_service = TgNotificationsService()
     return JSONResponse(
-        {'data': await message_service.getIncomeMessages(user_id)}
+        {'data': await tg_service.getUnfinishedNotifications()}
     )
 
 
 @router.get(
-    "/outcome",
-    name='api:outcome',
+    "/user/exist",
+    name='api:check-user-exist',
     status_code=status.HTTP_200_OK
 )
-async def outcome(user_id: int):
-    message_service = MessagesService()
-    return JSONResponse(
-        {'data': await message_service.getOutcomeMessages(user_id)}
-    )
-
-
-@router.get(
-    "/new",
-    name='api:new',
-    status_code=status.HTTP_200_OK
-)
-async def new(user_id: int):
-    message_service = MessagesService()
-    return JSONResponse(
-        {'data': await message_service.getNewMessages(user_id)}
-    )
-
+async def get_notifications(tg_id: int):
+    tg_service = TgNotificationsService()
+    user = await tg_service.checkUserExist(tg_id)
+    if user:
+        return JSONResponse(
+            {'data': True}
+        )
+    else:
+        return JSONResponse(
+            {'data': False}
+        )
