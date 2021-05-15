@@ -7,3 +7,4 @@ class Message(BaseModel):
     message: str
     filepath: str
     creation_date: int
+    viewed: bool
