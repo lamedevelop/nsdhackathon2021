@@ -20,6 +20,7 @@ metadata = MetaData(naming_convention=convention)
 messages_table = Table(
     'messages',
     metadata,
+    Column('message_id', Integer, primary_key=True),
     Column('sender_id', Integer, primary_key=True),
     Column('receiver_id', Integer, nullable=False),
     Column('message', Text, nullable=False),
