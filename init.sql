@@ -34,7 +34,7 @@ CREATE TABLE tg_notifications (
     creation_date int
 );
 
-create_users = """
+"""
 INSERT INTO
   `users` (`user_id`, `password_hash`, `phone`, `email`, `tg_id`, `tg_authdate`, `tg_hash`, `first_name`, `last_name`, `last_auth`, `last_update`, `registration_date`)
 VALUES
@@ -44,7 +44,7 @@ VALUES
   (3, '1234', '246742188', 'bb@gmail.com', 368497600, 17, 'left text', 'ilya', 'zemlya', 18, 19, 20),
 """
 
-create_messages = """
+"""
 INSERT INTO
   `messages` (`sender_id`, `receiver_id`, `message`, `filepath`, `creation_date`, `viewed`)
 VALUES
@@ -54,7 +54,7 @@ VALUES
   (2, 3, 'lie', 27, 28, 1),
 """
 
-create_tg_notifications = """
+"""
 INSERT INTO
   `tg_notifications ` (`notification_id`, `tg_id`, `message`, `executed`, `execution_date`, `creation_date`)
 VALUES
