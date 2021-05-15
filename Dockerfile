@@ -3,7 +3,7 @@ FROM python:3.7-alpine
 COPY requirements.txt /tmp/requirements.txt
 
 RUN \
-    apk add --no-cache make && \
+    apk add --no-cache make g++ musl-dev && \
     pip install -r /tmp/requirements.txt
 
 COPY . /etc/web/
