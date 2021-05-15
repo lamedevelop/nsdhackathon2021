@@ -101,14 +101,14 @@ input:focus ~ .bar:after {
   letter-spacing: 3px;
   font-weight: 600;
   color: #524f4e;
-  background: white;
+  background: linear-gradient(180deg, #F31414 23.44%, #BD00FF 100%);
   box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
   transition: .3s;
   border: 0;
 }
 .floating-button:hover {
-  background: #2EE59D;
-  box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+  background: #BD00FF;
+  box-shadow: 0 15px 20px #F31414;
   color: white;
   transform: translateY(-7px);
 }
@@ -116,5 +116,5 @@ input:focus ~ .bar:after {
 .reg-pos{
   position: absolute;
   top: 70vh;
-  left: 40vw;
+  left: 43vw;
 }
