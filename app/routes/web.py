@@ -15,3 +15,12 @@ templates = Jinja2Templates(directory="templates")
 async def hello(request: Request):
     data = {'response': "default"}
     return templates.TemplateResponse("index.html", {"request": request, "value": data})
+
+
+@router.get(
+    "/login",
+    status_code=status.HTTP_200_OK
+)
+async def hello(request: Request):
+    data = {'response': "default"}
+    return templates.TemplateResponse("login.html", {"request": request})
