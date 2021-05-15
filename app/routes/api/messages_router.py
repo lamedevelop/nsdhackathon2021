@@ -33,13 +33,12 @@ async def outcome(user_id: int):
 
 
 @router.get(
-    "/new",
-    name='api:new',
+    "/unread",
+    name='api:get-unread',
     status_code=status.HTTP_200_OK
 )
-async def new(user_id: int):
+async def get_unread(user_id: int):
     message_service = MessagesService()
     return JSONResponse(
         {'data': await message_service.getNewMessages(user_id)}
     )
-
