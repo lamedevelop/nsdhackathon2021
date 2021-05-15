@@ -1,10 +1,11 @@
 CREATE TABLE users (
     user_id int,
+    password_hash text,
     phone varchar(255),
     email varchar(255),
     tg_id int,
     tg_authdate int,
-    tg_hash varchar(500),
+    tg_hash text,
     first_name varchar(255),
     last_name varchar(255),
     last_auth int,
