@@ -17,7 +17,7 @@ class TgNotificationsService(AbstractService):
             notification = TgNotification(**message)
             # todo: return after notification tests
             # await self.deactivateNotification(TgNotification(**message))
-            notifications.append(notification.json())
+            notifications.append(notification.dict())
         return notifications
 
     async def deactivateNotification(self, notification):
