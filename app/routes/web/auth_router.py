@@ -31,7 +31,7 @@ async def hello(request: Request):
     status_code=status.HTTP_200_OK
 )
 async def auth(request: Request):
-    return templates.TemplateResponse("registration.html", {"request": request})
+    return templates.TemplateResponse("reg.html", {"request": request})
 
 
 @router.post(
