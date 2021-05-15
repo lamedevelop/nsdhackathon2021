@@ -12,6 +12,13 @@ router = APIRouter()
     status_code=status.HTTP_200_OK
 )
 async def income(request: Request):
+    try:
+        pass
+    except:
+        pass
+
+    a = await request.json()
+    print(a)
     return JSONResponse(
         {'response': "HELLO FROM ORKS!"}
     )

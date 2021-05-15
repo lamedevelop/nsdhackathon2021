@@ -1,6 +1,7 @@
-fastapi
-starlette
+fastapi~=0.65.1
+starlette~=0.14.2
 flake8
 uvicorn
 jinja2
 aiofiles
+pydantic~=1.8.2
