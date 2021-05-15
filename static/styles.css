@@ -1,3 +1,14 @@
 .text {
     color: red;
 }
+
+button {
+    position: absolute;
+    width: 523px;
+    height: 95px;
+    left: 698px;
+    top: 617px;
+
+    background: linear-gradient(180deg, #F31414 23.44%, #BD00FF 100%);
+    border-radius: 48px;
+}
