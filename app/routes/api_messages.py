@@ -2,6 +2,7 @@ from fastapi import APIRouter, Request
 from starlette import status
 from starlette.responses import JSONResponse
 
+from app.db.services.messages import MessagesService
 
 router = APIRouter()
 
@@ -11,14 +12,10 @@ router = APIRouter()
     name='api:income',
     status_code=status.HTTP_200_OK
 )
-async def income(receiver_id: int):
-    try:
-        print(receiver_id)
-    except:
-        pass
-
+async def income(user_id: int):
+    message_service = MessagesService()
     return JSONResponse(
-        {'response': "HELLO FROM ORKS!"}
+        {'data': await message_service.getIncomeMessages(user_id)}
     )
 
 
@@ -27,9 +24,10 @@ async def income(receiver_id: int):
     name='api:outcome',
     status_code=status.HTTP_200_OK
 )
-async def outcome(request: Request):
+async def outcome(user_id: int):
+    message_service = MessagesService()
     return JSONResponse(
-        {'response': "HELLO FROM ORKS!"}
+        {'data': await message_service.getOutcomeMessages(user_id)}
     )
 
 
@@ -38,8 +36,9 @@ async def outcome(request: Request):
     name='api:new',
     status_code=status.HTTP_200_OK
 )
-async def new(request: Request):
+async def new(user_id: int):
+    message_service = MessagesService()
     return JSONResponse(
-        {'response': "HELLO FROM ORKS!"}
+        {'data': await message_service.getNewMessages(user_id)}
     )
 
