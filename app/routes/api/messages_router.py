@@ -1,8 +1,4 @@
-import os
-from typing import List
-
-from fastapi import APIRouter, Request, UploadFile, File
-from fastapi.encoders import jsonable_encoder
+from fastapi import APIRouter, UploadFile, File
 from starlette import status
 from starlette.responses import JSONResponse
 
@@ -17,15 +13,16 @@ router = APIRouter()
     name='api:send-message',
     status_code=status.HTTP_200_OK
 )
-async def get_unread(file: UploadFile = File(...)):
-    print(file.file)
-    os.mkdir("images")
-    file_name = os.getcwd() + "/images/" + file.filename + "123"
-    with open(file_name, 'wb+') as f:
-        f.write(file.file.read())
-        f.close()
-
-    return {"filename": file_name}
+async def send(file: UploadFile = File(...)):
+    message_service = MessagesService()
+    successful = await message_service.saveFile(file)
+    if not successful:
+        return JSONResponse(
+            {"exception": "failed to send file"},
+            status_code=status.HTTP_400_BAD_REQUEST,
+        )
+    else:
+        return JSONResponse({"data": True})
 
 
 @router.get(

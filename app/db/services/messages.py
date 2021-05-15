@@ -1,4 +1,7 @@
+import os
 import zipfile
+
+from fastapi import UploadFile
 
 from app.db.models.message import Message
 from app.db.schema import messages_table
@@ -6,6 +9,8 @@ from app.db.services.abstract import AbstractService
 
 
 class MessagesService(AbstractService):
+
+    files_dir = 'data'
 
     async def getNewMessages(self, user_id):
         session = await self.get_session()
@@ -54,3 +59,13 @@ class MessagesService(AbstractService):
         for message in query_result:
             messages.append(message[0])
         return messages
+
+    def saveFile(self, file: UploadFile):
+        try:
+            file_name = os.getcwd() + self.files_dir + file.filename
+            with open(file_name, 'wb+') as f:
+                f.write(file.file.read())
+                f.close()
+            return True
+        except Exception as e:
+            return False
