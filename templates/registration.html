@@ -8,29 +8,33 @@
     <title>Registration</title>
 </head>
 <body>
-    <h1>Registration</h1>
-
-    <form action="http://localhost:8000/registration/action" method="POST">
-        <div>
-            <label for="first_name">First name</label>
-            <input name="first_name" id="first_name">
-        </div>
-        <div>
-            <label for="last_name">Last name</label>
-            <input name="last_name" id="last_name">
-        </div>
-        <div>
-            <label for="email">Email</label>
-            <input name="email" id="email">
-        </div>
-        <div>
-            <label for="phone">Phone</label>
-            <input name="phone" id="phone">
-        </div>
-        <div>
-            <button>Register</button>
-        </div>
-    </form>
+    <div class="registerForm">
+        <form action="http://localhost:8000/registration/action" method="POST">
+            <div class="group">
+                <input type="text" id="first_name" required>
+                <span class="bar"></span>
+                <label>First name</label>
+            </div>
+            <div class="group">
+                <input type="text" id="last_name" required>
+                <span class="bar"></span>
+                <label>Last name </label>
+            </div>
+            <div class="group">
+                <input type="text" id="email" required>
+                <span class="bar"></span>
+                <label>Email</label>
+            </div>
+            <div class="group">
+                <input type="text" id="phone" required>
+                <span class="bar"></span>
+                <label>Phone</label>
+            </div>
+            <div>
+                <button class="floating-button reg-pos">Register</button>
+            </div>
+        </form>
+    </div>
 
 </body>
 </html>

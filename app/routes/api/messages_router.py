@@ -63,7 +63,7 @@ async def get_unread(user_id: int):
 
 @router.get(
     "/zip_struct",
-    name='api:get-zi-struct',
+    name='api:get-zip-struct',
     status_code=status.HTTP_200_OK
 )
 async def get_zip_struct(message_id: int):
