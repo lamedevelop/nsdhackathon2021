@@ -1,4 +1,6 @@
-
+.alter-main{
+  background: #060606;
+}
 .group {
   position: relative;
   margin-bottom: 30px;
@@ -71,10 +73,10 @@ input:focus ~ .bar:after {
     left: 38vw;
 }
 
-.floating-button {
+.floating-button-reg {
   text-decoration: none;
   display: inline-block;
-  width: 140px;
+  width: 250px;
   height: 45px;
   line-height: 45px;
   border-radius: 45px;
@@ -91,7 +93,34 @@ input:focus ~ .bar:after {
   transition: .3s;
   border: 0;
 }
-.floating-button:hover {
+.floating-button-reg:hover {
+  background: #2EE59D;
+  box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+  color: white;
+  transform: translateY(-7px);
+}
+
+.floating-button-settings {
+  text-decoration: none;
+  display: inline-block;
+  width: 250px;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 45px;
+  margin: 10px 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: #524f4e;
+  background: white;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+  transition: .3s;
+  border: 0;
+}
+.floating-button-settings:hover {
   background: #2EE59D;
   box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
   color: white;
@@ -101,5 +130,189 @@ input:focus ~ .bar:after {
 .reg-pos{
   position: absolute;
   top: 70vh;
-  left: 40vw;
+  left: 38.5vw;
 }
+
+.write-address{
+  position: absolute;
+  top: 5vh;
+  left: 35vw;
+}
+.write-topic{
+  position: absolute;
+  top: 5vh;
+  left: 65vw;
+}
+
+.placeholder-f-pos{
+  position: absolute;
+  top: 25vh;
+  left: 35vw;
+}
+
+.placeholder-f{
+  font-size: 16px;
+  padding: 10px;
+  display: block;
+  width: 300px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+
+.placeholder-f:focus {
+  outline: none;
+}
+
+.placeholder-f:focus ~ label, .placeholder-f:valid ~ label {
+  top: -15px;
+  font-size: 14px;
+  color: #5264AE;
+}
+
+.placeholder-f:focus ~ .bar:before,
+.placeholder-f:focus ~ .bar:after {
+  width: 50%;
+}
+.menu{
+  position: absolute;
+  height: 100vh;
+  width: 30vw;
+  top: 0;
+  left: 0;
+  background: #232131;
+}
+
+.menu-button {
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    padding: 20px 90px;
+    color: #766AD0;
+    border: 1px solid #3A374C;
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: .3s linear;
+}
+.menu-button:before, .menu-button:after, .link-content:before, .link-content:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    width: 15px;
+    height: 15px;
+    transition: .3s linear;
+}
+.menu-button:before {
+    left: -1px;
+    top: -1px;
+    border-left: 1px solid #614DFF;
+    border-top: 1px solid #614DFF;
+}
+.menu-button:after {
+    bottom: -1px;
+    right: -1px;
+    border-bottom: 1px solid #614DFF;
+    border-right: 1px solid #614DFF;
+}
+.link-content:after {
+    right: -1px;
+    top: -1px;
+    border-right: 1px solid #614DFF;
+    border-top: 1px solid #614DFF;
+}
+.link-content:before {
+    left: -1px;
+    bottom: -1px;
+    border-bottom: 1px solid #614DFF;
+    border-left: 1px solid #614DFF;
+}
+.menu-button:hover {
+    color: #614DFF;
+    border-color: #614DFF;
+}
+
+.my-message {
+  position: absolute;
+  top: 5vh;
+  left: 5vw;
+}
+
+.write {
+  position: absolute;
+  top: 15vh;
+  left: 4vw;
+}
+
+.settings {
+  position: absolute;
+  top: 25vh;
+  left: 6.3vw;
+}
+
+.exit {
+  position: absolute;
+  top: 90vh;
+  left: 5vw;
+}
+
+.floating-button-exit {
+  text-decoration: none;
+  display: inline-block;
+  width: 250px;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 45px;
+  margin: 10px 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: #524f4e;
+  background: white;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+  transition: .3s;
+  border: 0;
+}
+.floating-button-exit:hover {
+  background: red;
+  box-shadow: 0 15px 20px rgba(252, 119, 119, 0.7);
+  color: white;
+  transform: translateY(-7px);
+}
+
+.floating-button-load {
+  text-decoration: none;
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 45px;
+  margin: 10px 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: #524f4e;
+  background: white;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+  transition: .3s;
+  border: 0;
+}
+.floating-button-load:hover {
+  background: #2EE59D;
+  box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+  color: white;
+  transform: translateY(-7px);
+}
+.message {
+  position: absolute;
+  top: 5vh;
+  left: 70vw;
+}
+
+
+
