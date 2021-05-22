@@ -40,6 +40,9 @@ class UsersService(AbstractService):
 
     async def login(self, email: str, password_hash: str):
         user = await self.getUserByLogin(email, password_hash)
+
+        print(user)
+
         if user:
             return self.STATUS_AUTH_OK
         else:

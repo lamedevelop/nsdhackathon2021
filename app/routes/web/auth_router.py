@@ -39,7 +39,6 @@ async def login_post(
         email: str = Form(...),
         password: str = Form(...),
 ):
-    request = await request.json()
     user_service = UsersService()
     auth_status = await user_service.login(email, password)
 
