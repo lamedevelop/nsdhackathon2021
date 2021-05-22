@@ -21,6 +21,14 @@ class UsersService(AbstractService):
         )
         return await self.getUser(user)
 
+    async def getUserById(self, user_id: int):
+        user = await self.select(
+            users_table.select().where(
+                users_table.c.user_id == user_id
+            )
+        )
+        return await self.getUser(user)
+
     async def getUserByLogin(self, email: str, password_hash: str):
         user = await self.select(
             users_table.select().where(

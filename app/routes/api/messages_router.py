@@ -3,7 +3,7 @@ from starlette import status
 from starlette.responses import JSONResponse
 
 from app.db.services.messages import MessagesService
-
+from app.db.services.users import UsersService
 
 router = APIRouter()
 
@@ -38,6 +38,30 @@ async def income(user_id: int):
 
 
 @router.get(
+    "/income/data",
+    name='api:income-data',
+    status_code=status.HTTP_200_OK
+)
+async def income(user_id: int):
+    response = []
+    user_service = UsersService()
+    message_service = MessagesService()
+    income_messages = await message_service.getIncomeMessages(user_id)
+
+    for message in income_messages:
+        sender = await user_service.getUserById(message['sender_id'])
+        message['sender'] = sender.email
+        message.pop('sender_id')
+        message.pop('receiver_id')
+        message.pop('filepath')
+        response.append(message)
+
+    return JSONResponse(
+        {'data': response}
+    )
+
+
+@router.get(
     "/outcome",
     name='api:outcome',
     status_code=status.HTTP_200_OK
@@ -46,6 +70,30 @@ async def outcome(user_id: int):
     message_service = MessagesService()
     return JSONResponse(
         {'data': await message_service.getOutcomeMessages(user_id)}
+    )
+
+
+@router.get(
+    "/outcome/data",
+    name='api:outcome-data',
+    status_code=status.HTTP_200_OK
+)
+async def income(user_id: int):
+    response = []
+    user_service = UsersService()
+    message_service = MessagesService()
+    income_messages = await message_service.getOutcomeMessages(user_id)
+
+    for message in income_messages:
+        receiver = await user_service.getUserById(message['receiver_id'])
+        message['receiver'] = receiver.email
+        message.pop('sender_id')
+        message.pop('receiver_id')
+        message.pop('filepath')
+        response.append(message)
+
+    return JSONResponse(
+        {'data': response}
     )
 
 

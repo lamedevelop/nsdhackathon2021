@@ -12,7 +12,7 @@ class UserRegistration(BaseModel):
     registration_date: int
 
 
-class User(BaseModel):
+class User(UserRegistration):
     user_id: int
     tg_id: Optional[int]
     tg_authdate: Optional[int]
