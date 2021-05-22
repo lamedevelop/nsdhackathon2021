@@ -93,10 +93,35 @@ body {
     margin-top: 10px;
 }
 
+.content a {
+    text-decoration: none;
+    color: #000;
+}
+
+.content a:hover {
+    background-color: #c0c0c0;
+}
+
+.content a:active {
+    background-color: #8d8d8d;
+}
+
+.content a:checked {
+    color: #000;
+}
+
+.content-message.viewed span{
+    font-weight: 900;
+}
+
 .content-message {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
     background-color: #C4C4C4;
+    font-size: 150%;
     width: 80%;
-    height: 50px;
+    height: 80px;
     margin: 5px;
     border-radius: 18px;
 }
