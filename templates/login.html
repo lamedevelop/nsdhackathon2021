@@ -1,20 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
-    <title>Login</title>
-</head>
-<body>
+{% extends "header.html" %}
 
-<form action="">
+{% block title %}
+<title>Auth</title>
+{% endblock %}
 
-    <div class="group"><input type="text" placeholder="Email" /></div>
-    <div class="group"><input type="text" placeholder="Пароль" /></div>
-    <div><button type="submit">Вход</button></div>
+{% block styles %}
+<link href="{{ url_for('static', path='/css/styles.css') }}" rel="stylesheet">
+{% endblock %}
 
-</form>
-
-<body>
+{% block content %}
+<div class="auth-form-container">
+    <div class="auth-form">
+        <div class="auth-avatar"></div>
+        <div class="auth-bnt">Вход</div>
+        <div class="auth-registration">Регистрация</div>
+    </div>
+</div>
+{% endblock %}

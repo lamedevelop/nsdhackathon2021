@@ -13,7 +13,7 @@ templates = Jinja2Templates(directory="templates")
     status_code=status.HTTP_200_OK
 )
 async def main(request: Request):
-    return templates.TemplateResponse("main.html", {"request": request})
+    return templates.TemplateResponse("registration.html", {"request": request})
 
 
 @router.get(

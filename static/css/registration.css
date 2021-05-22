@@ -1,0 +1,45 @@
+body {
+    margin: 0
+}
+
+.registration-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.registration-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.registration-form input {
+    margin: 0 0 20px 0;
+    padding: 10px;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+
+#registration-go {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    width: 100%;
+    height: 35px;
+    background: linear-gradient(180deg, #4200FF 0%, #AD00FF 100%);
+    border-radius: 3px;
+}
+
+#registration-go:hover{
+    background: linear-gradient(180deg, #280096 0%, #7c00b6 100%);
+}
+
+#registration-go:active{
+    background: linear-gradient(180deg, #18005c 0%, #33004b 100%);
+}

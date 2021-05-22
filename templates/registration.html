@@ -1,40 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
-    <title>Registration</title>
-</head>
-<body>
-    <div class="registerForm">
-        <form action="http://localhost:8000/registration/action" method="POST">
-            <div class="group">
-                <input type="text" id="first_name" required>
-                <span class="bar"></span>
-                <label>First name</label>
-            </div>
-            <div class="group">
-                <input type="text" id="last_name" required>
-                <span class="bar"></span>
-                <label>Last name </label>
-            </div>
-            <div class="group">
-                <input type="text" id="email" required>
-                <span class="bar"></span>
-                <label>Email</label>
-            </div>
-            <div class="group">
-                <input type="text" id="phone" required>
-                <span class="bar"></span>
-                <label>Phone</label>
-            </div>
-            <div>
-                <button class="floating-button reg-pos">Register</button>
-            </div>
-        </form>
-    </div>
+{% extends "header.html" %}
 
-</body>
-</html>
+{% block title %}
+<title>Auth</title>
+{% endblock %}
+
+{% block styles %}
+<link href="{{ url_for('static', path='/css/registration.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="registration-container">
+    <div class="registration-form">
+        <input type="text" placeholder="Введите Ваши ФИО *">
+        <input type="text" placeholder="Введите Ваш e-mail *">
+        <input type="text" placeholder="Введите Ваш телефон *">
+        <input type="text" placeholder="Введите Ваш пароль *">
+        <div id="registration-go">Отправить данные</div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', path='/js/registration.js') }}"></script>
+{% endblock %}
