@@ -17,9 +17,10 @@ body {
     flex-direction: column;
 }
 
-.registration-form input {
+.registration-form input:not(:last-child) {
     margin: 0 0 20px 0;
     padding: 10px;
+    font-size: 20px;
     border: 1px solid #000000;
     box-sizing: border-box;
     border-radius: 3px;
@@ -30,8 +31,9 @@ body {
     justify-content: center;
     align-items: center;
     color: #fff;
+    font-size: 20px;
     width: 100%;
-    height: 35px;
+    padding: 10px;
     background: linear-gradient(180deg, #4200FF 0%, #AD00FF 100%);
     border-radius: 3px;
 }
