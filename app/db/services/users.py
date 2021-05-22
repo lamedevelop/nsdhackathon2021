@@ -1,3 +1,5 @@
+from sqlalchemy import and_
+
 from app.db.models.user import User, UserRegistration
 from app.db.schema import users_table
 from app.db.services.abstract import AbstractService
@@ -19,14 +21,29 @@ class UsersService(AbstractService):
         )
         return await self.getUser(user)
 
+    async def getUserByLogin(self, email: str, password_hash: str):
+        user = await self.select(
+            users_table.select().where(
+                and_(
+                    users_table.c.email == email,
+                    users_table.c.password_hash == password_hash
+                )
+            )
+        )
+        return await self.getUser(user)
+
     async def getUser(self, user):
         if user:
             return User(**user)
         else:
             return False
 
-    async def login(self, email: str, passwd_hash: str):
-        return self.STATUS_AUTH_OK
+    async def login(self, email: str, password_hash: str):
+        user = await self.getUserByLogin(email, password_hash)
+        if user:
+            return self.STATUS_AUTH_OK
+        else:
+            return self.STATUS_AUTH_FAILED
 
     async def register(self, user: UserRegistration):
         try:

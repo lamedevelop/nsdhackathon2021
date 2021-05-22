@@ -34,10 +34,14 @@ async def login(request: Request):
     name='web:login-action',
     status_code=status.HTTP_200_OK
  )
-async def login_post(request: Request):
+async def login_post(
+        request: Request,
+        email: str = Form(...),
+        password: str = Form(...),
+):
     request = await request.json()
     user_service = UsersService()
-    auth_status = await user_service.login(request['email'], request['password_hash'])
+    auth_status = await user_service.login(email, password)
 
     if auth_status == user_service.STATUS_AUTH_OK:
         return templates.TemplateResponse("main.html", {"request": request})
@@ -83,6 +87,6 @@ async def registration_action(
     )
 
     if auth_status == user_service.STATUS_AUTH_OK:
-        return templates.TemplateResponse("main.html", {"request": request})
+        return templates.TemplateResponse("login.html", {"request": request})
     else:
         return templates.TemplateResponse("registration.html", {"request": request})
