@@ -48,6 +48,15 @@ async def login_post(
         return templates.TemplateResponse("login.html", {"request": request})
 
 
+@router.post(
+    "/logout",
+    name='web:logout',
+    status_code=status.HTTP_200_OK
+)
+async def logout(request: Request):
+    return templates.TemplateResponse("login.html", {"request": request})
+
+
 @router.get(
     "/registration",
     name='web:registration-page',

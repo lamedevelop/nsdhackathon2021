@@ -68,9 +68,9 @@ outcome.addEventListener('click', async function (e) {
 })
 
 logout.addEventListener('click', function (e) {
-    console.log(4)
+    post('/logout', '')
 })
 
 settings.addEventListener('click', function (e) {
-    console.log(5)
+    post('/settings', '', 'get')
 })
