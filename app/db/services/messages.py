@@ -57,7 +57,7 @@ class MessagesService(AbstractService):
     async def filterMessages(self, query_result):
         messages = []
         for message in query_result:
-            messages.append(message[0])
+            messages.append(Message(**message).dict())
         return messages
 
     def saveFile(self, file: UploadFile):
