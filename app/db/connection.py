@@ -2,7 +2,8 @@
 class DbConnection:
     user = 'root'
     password = 'root'
-    host = 'mariadb'
+    # host = 'mariadb'
+    host = '127.0.0.1'
     port = 3306
     default_db = 'common'
     driver = 'mysql+mysqlconnector'
