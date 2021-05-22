@@ -31,7 +31,6 @@ class MessagesService(AbstractService):
         session = await self.get_session()
         res = session.query(messages_table) \
             .filter(messages_table.c.receiver_id.in_([user_id])) \
-            .filter(messages_table.c.viewed.in_([True])) \
             .all()
         return await self.filterMessages(res)
 
