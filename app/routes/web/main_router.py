@@ -17,6 +17,15 @@ async def main(request: Request):
 
 
 @router.get(
+    "/settings",
+    name='web:settings',
+    status_code=status.HTTP_200_OK
+)
+async def settings(request: Request):
+    return templates.TemplateResponse("settings.html", {"request": request})
+
+
+@router.get(
     "/income",
     name='web:income',
     status_code=status.HTTP_200_OK
