@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="nofoobar.com" content="Nofoobar">
-    
+
     {% block title %}
     {% endblock %}
 
@@ -16,7 +17,27 @@
     {% block content %}
     {% endblock %}
 
+    <script>
+        function post(path, params, method = 'post') {
+            const form = document.createElement('form');
+            form.method = method;
+            form.action = path;
+            for (const key in params) {
+                if (params.hasOwnProperty(key)) {
+                    const hiddenField = document.createElement('input');
+                    hiddenField.type = 'hidden';
+                    hiddenField.name = key;
+                    hiddenField.value = params[key];
+                    form.appendChild(hiddenField);
+                }
+            }
+            document.body.appendChild(form);
+            form.submit();
+        }
+    </script>
+
     {% block scripts %}
     {% endblock %}
 </body>
+
 </html>
