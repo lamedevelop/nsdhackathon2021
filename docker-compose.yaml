@@ -2,26 +2,35 @@ version: "3.9"
 
 services:
   web:
-    container_name: web
+    container_name: nsdhackathon2021-web
     build: .
     restart: always
     ports:
       - 8000:8000
     links:
       - db:mariadb
-  
+    networks:
+        - nsdhackathon2021
+
   db:
-    container_name: db
+    container_name: nsdhackathon2021-db
     image: mariadb:10.5
 #    command: --init-file /docker-entrypoint-initdb.d/init.sql
     restart: always
-    environment: 
+    environment:
       MYSQL_ROOT_PASSWORD: 'root'
-    ports:
-      - 3306:3306
+#    ports:
+#      - 3306:3306
+    networks:
+      - nsdhackathon2021
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-      # - db-storage:/var/lib/mysql
+#      - db-storage:/var/lib/mysql
 
 volumes:
   db-storage:
+
+networks:
+  nsdhackathon2021:
+    name: nsdhackathon2021
+    driver: bridge

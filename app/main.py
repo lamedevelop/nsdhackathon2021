@@ -4,11 +4,13 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.routes.main import router
 
+PREFIX = "/nsd"
+
 
 def get_application() -> FastAPI:
     application = FastAPI()
-    application.include_router(router)
-    application.mount("/static", StaticFiles(directory="static"), name="static")
+    application.include_router(router, prefix=PREFIX)
+    application.mount(f"{PREFIX}/static", StaticFiles(directory="static"), name="static")
 
     origins = [
         "http://localhost",
